@@ -10,7 +10,9 @@ template <typename T>
 struct Point
 {
     T X;
-    T T;
+    T Y;
+
+    point(T x, T y):X(x), Y(y){}
 }
 
 #endif
