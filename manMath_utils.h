@@ -32,4 +32,18 @@
 #define false (FALSE)
 #endif
 
+#ifndef MANMATH_NAMESPACE
+#define MANMATH_NAMESPACE manMath
+#endif
+
+#ifndef MANMATH_NAMESPACE_BEGIN
+#define MANMATH_NAMESPACE namespace MANMATH_NAMESPACE {
+#endif
+
+
+#ifndef MANMATH_NAMESPACE_END
+#define MANMATH_NAMESPACE }
+#endif
+
+
 #endif
