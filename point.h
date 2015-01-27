@@ -13,6 +13,6 @@ struct Point
     T Y;
 
     point(T x, T y):X(x), Y(y){}
-}
+};
 
 #endif

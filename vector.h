@@ -9,7 +9,6 @@ struct Vector
 
     /*Constructor */
     Vector(T r, T s): R(r), S(s) {};
-
-}
+};
 
 #endif
