@@ -6,6 +6,8 @@
 
 #include "manMath_utils.h"
 
+MANMATH_NAMESPACE_BEGIN
+
 template <typename T>
 class Segment
 {
@@ -28,16 +30,24 @@ class Segment
             V = new Vector(_x,_y);
         }
 
+        /*When the segment is actually a point*/
+        Segment(Point<T> P):R(P),tMax(0.0), tMin(0.0)
+        {
+            V = new Vector<T>(0,0);
+        }
+
         bool isPoint()
         {
-            return tMax == tMin && tMax < epsilon;
+            return tMax == tMin && tMax < EPSILON;
         }
+
+        
     private:
         /* A line can be represented as
          * R+t*V 
          * t is parametrisized*/
-        Vector* V;  
-        Point* R;
+        Vector<T>* V;  
+        Point<T>* R;
 
         /*A line segment is essentially a line which has a bound on the
          * parametric */
@@ -46,3 +56,7 @@ class Segment
 
 
 };
+
+MANMATH_NAMESPACE_END 
+
+#endif
