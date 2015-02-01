@@ -19,7 +19,7 @@ T getDistanceP2P(Point<T>* p1, Point<T>* p2)
 /*Get the list of points/Manhattan arc that 
  * are equidistant from 2 Points */
 template <typename T>
-segment<T>* p2pManArc(Point<T>* p1, Point<T>* p2);
+Segment<T>* p2pManArc(Point<T>* p1, Point<T>* p2);
 
 /* get the manhattan distance between two line segments*/
 template <typename T>

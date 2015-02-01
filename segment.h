@@ -4,6 +4,8 @@
 #include "point.h"
 #include "vector.h"
 
+#include "manMath_utils.h"
+
 template <typename T>
 class Segment
 {
@@ -26,6 +28,10 @@ class Segment
             V = new Vector(_x,_y);
         }
 
+        bool isPoint()
+        {
+            return tMax == tMin && tMax < epsilon;
+        }
     private:
         /* A line can be represented as
          * R+t*V 
