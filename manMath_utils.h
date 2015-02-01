@@ -14,10 +14,13 @@
 #define ABS(a) (((a) < (0)) ? ((a) * ((typeof((a)))(-1))) : ((a)))
 #endif
 
-
 //make sure that true and false are actually defined and in lowercase. 
 #ifndef TRUE
 #define TRUE (1==1)
+#endif
+
+#ifndef EPSILON
+#define EPSILON 1e-30
 #endif
 
 #ifndef true
@@ -30,6 +33,11 @@
 
 #ifndef false
 #define false (FALSE)
+#endif
+
+/*Definition for equality to zero for floating points*/
+#ifndef EQZERO
+#define EQZERO(a) (((a) < (EPSILON)) ? (TRUE) : (FALSE))
 #endif
 
 #ifndef MANMATH_NAMESPACE
