@@ -65,9 +65,20 @@ class Segment
             V = new Vector(0,0);
         }
 
+        /*is it a Point */
         bool isPoint()
         {
             return tMax == tMin && tMax < EPSILON;
+        }
+
+        bool isHorizontal()
+        {
+            return (V->K == 0);
+        }
+        
+        bool isVertical()
+        {
+            return (V->L == 0);
         }
 
         

@@ -11,11 +11,11 @@ struct Vector
      *  Therefore there is no need for templated values
      *  for this struct */
     
-    int R;
-    int S;
+    int K;
+    int L;
 
     /*Constructor */
-    Vector(int r, int s): R(r), S(s) {};
+    Vector(int k, int l): K(k), L(l) {};
 };
 
 #endif
