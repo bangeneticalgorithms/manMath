@@ -13,27 +13,56 @@ class Segment
 {
     public:
         /*Default Constructor*/
-        Segment(Vector<T>* v, Point<T>* r, T max, T min):V(v), R(r), tMax(max), tMin(min){}
+        Segment(Vector* v, Point<T>* r, T max, T min):V(v), R(r), tMax(max), tMin(min)
+        {
+        }
 
         /*Constructor with two points
          * This constructor finds the parametric form of a line segment
          * when it is constructed with two points
          * Take first point as the starting point
-         * and the second point is the ending point
-         * Hence => tMin =0 tMax =1*/
-        Segment(Point<T>* p1, Point<T>* p2):R(p1), tMin(0.0), tMax(1.0)
+         * All Manhattan arcs have have a slope of
+         * +1 => 45 or // to y=x line
+         * -1 => -45 or // to y= -x line
+         *  0 => // to x axis
+         *  inf => // to y axis
+         *  */
+        Segment(Point<T>* p1, Point<T>* p2):R(p1), tMin(0.0)
         {
-            /*Then use the two points to calculate V*/
-            T _x = p2->X - p1->X;
-            T _y = p2->Y - p1->Y;
-
-            V = new Vector(_x,_y);
+            int x,y;
+            if(EQZERO(p1->X - p2->X))
+            {
+                x = 0;
+            }
+            else if(EQZERO(p1->Y - p2->Y))
+            {
+                y = 0;
+            }
+            else if(EQZERO((p1->Y - p2->Y)-(p1->X - p2->X)))
+            {
+                x = 1;
+                y = 1;
+            }
+            else if(EQZERO((p1->Y - p2->Y)+(p1->X - p2->X)))
+            {
+                x = -1;
+                y = 1;
+            }
+            else /*Shouldn't happen*/
+            {
+                x = 0;
+                y = 0;
+            } 
+            V = new Vector(x, y);
+            tMax =( p2->X - R->X)/(V->R);          
         }
 
         /*When the segment is actually a point*/
         Segment(Point<T> P):R(P),tMax(0.0), tMin(0.0)
         {
-            V = new Vector<T>(0,0);
+            /*In reality tMax and can be any value since 
+             * V is zero */
+            V = new Vector(0,0);
         }
 
         bool isPoint()
@@ -46,15 +75,13 @@ class Segment
         /* A line can be represented as
          * R+t*V 
          * t is parametrisized*/
-        Vector<T>* V;  
+        Vector* V;  
         Point<T>* R;
 
         /*A line segment is essentially a line which has a bound on the
          * parametric */
         double tMax;
         double tMin;
-
-
 };
 
 MANMATH_NAMESPACE_END 
