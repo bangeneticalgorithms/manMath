@@ -11,12 +11,23 @@
 
 MANMATH_NAMESPACE_BEGIN
 
-/*Manhattan distance between 2 points */
+/*Manhattan distance between 2 segments */
 template <typename T>
-T getDistanceP2P(Segment<T>* p1, Segment<T>* p2)
+T getDistance(Segment<T>* s1, Segment<T>* s2)
+{
+    if(s1->isPoint() && s2->isPoint)
+    {
+        return getDistance(s1->R, s2->R);
+    }
+}
+
+/*Distance between two points*/
+template <typename T>
+T getDistance(Point<T>* p1, Point<T>* p2)
 {
     return ABS(p1->X - p2->X) + ABS(p1->Y - p2->Y);
 }
+
 
 /*Get the list of points/Manhattan arc that 
  * are equidistant from 2 Points */
