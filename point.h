@@ -7,7 +7,7 @@
 #define __POINT_H__
 
 template <typename T>
-struct Point
+class Point
 {
     T X;
     T Y;
@@ -28,5 +28,12 @@ bool inBetween(Point<T>* gP, Point<T>* tP1, Point<T>* tP2)
 
     return ((gP->X > minX) &&(gP->X < maxX)) || ((gP->Y > minY) &&(gP->X < maxY));
 
+}
+
+template <typename T>
+Point<T>* operator+(Point<T>* p1, Point<T>* p2)
+{
+    Point<T>* P = new Point<T>(p1->X + p2->X , p1->Y + p2->Y);
+    return P;
 }
 #endif
