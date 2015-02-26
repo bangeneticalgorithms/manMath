@@ -18,4 +18,34 @@ struct Vector
     Vector(int k, int l): K(k), L(l) {};
 };
 
+template <typename T>
+Vector operator*(T t, Vector V)
+{
+    Vector newV((int)t*(V.K),(int)t*(V.L));
+
+    return newV;
+};
+
+template <typename T>
+Vector operator+(T t, Vector V)
+{
+    Vector newV((int)t+(V.K),(int)t+(V.L));
+
+    return newV;
+};
+
+Vector operator+(Vector V,Vector W)
+{
+    Vector newV((V.K)+(W.K),(V.L)+(W.L));
+
+    return newV;
+};
+
+Vector operator-(Vector V,Vector W)
+{
+    Vector newV((V.K)-(W.K),(V.L)-(W.L));
+
+    return newV;
+};
+
 #endif
