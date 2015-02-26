@@ -1,6 +1,9 @@
 #ifndef __SEGMENT_H__
 #define __SEGMENT_H__
 
+#include <utility>
+
+
 #include "point.h"
 #include "vector.h"
 
@@ -54,7 +57,7 @@ class Segment
                 y = 0;
             } 
             V = new Vector(x, y);
-            tMax =( p2->X - R->X)/(V->R);          
+            tMax =( p2->X - R->X)/(V->K);          
         }
 
         /*When the segment is actually a point*/
@@ -81,11 +84,23 @@ class Segment
             return (V->L == 0);
         }
 
+
+        /* Returns the points on the edges
+         * */ 
+        std::pair<Point<T>* , Point<T>* > getEdgePoints()
+        {
+            Point<T> *p1, *p2;
+            *p1 = *R + tMin*(*V);
+            *p2 = *R + tMax*(*V);
+
+            return std::make_pair(p1,p2);
+        }
+
         
     private:
         /* A line can be represented as
          * R+t*V 
-         * t is parametrisized*/
+         * t is parametricized*/
         Vector* V;  
         Point<T>* R;
 
