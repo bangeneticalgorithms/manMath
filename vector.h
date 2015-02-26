@@ -34,6 +34,15 @@ Vector operator+(T t, Vector V)
     return newV;
 };
 
+template <typename T>
+Vector operator+(Point<T> P, Vector V)
+{
+    Vector newV((T)(P.X+V.K),(T)(P.Y+V.L));
+
+    return newV;
+};
+
+
 Vector operator+(Vector V,Vector W)
 {
     Vector newV((V.K)+(W.K),(V.L)+(W.L));
