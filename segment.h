@@ -111,6 +111,13 @@ class Segment
             return (P->Y > (*R + tMin*(*V)).Y) && (P->Y < (*R + tMax*(*V)).Y);
         }
 
+        /*returns the point designated by a tValue
+         */
+        Point<T>* getPointatT(double t)
+        {
+            return &(*R+t*(*V));
+        }
+
 
     private:
         /* A line can be represented as
