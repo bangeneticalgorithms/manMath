@@ -118,6 +118,13 @@ class Segment
             return &(*R+t*(*V));
         }
 
+
+        Point<T>* getMidPoint()
+        {
+            return &(*R+((tMin+tMax)/2*(*V)));
+        }
+
+
         /*get paratmetric values
          */
         double getTmin()
@@ -129,8 +136,6 @@ class Segment
         {
             return tMax;
         }
-
-
 
     private:
         /* A line can be represented as
