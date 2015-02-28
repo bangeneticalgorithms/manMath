@@ -118,6 +118,17 @@ class Segment
             return &(*R+t*(*V));
         }
 
+        /*get paratmetric values
+         */
+        double getTmin()
+        {
+            return tMin;
+        }
+
+        double getTMax()
+        {
+            return tMax;
+        }
 
     private:
         /* A line can be represented as
