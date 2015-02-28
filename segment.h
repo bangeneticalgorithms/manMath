@@ -96,7 +96,22 @@ class Segment
             return std::make_pair(p1,p2);
         }
 
+        /* Checks if a given point is within the horizontal level 
+         * as the segment */
+        bool isInBetweenX(Point<T>* P)
+        {
+            return (P->X > (*R + tMin*(*V)).X) && (P->X < (*R + tMax*(*V)).X);
+        }
+
         
+        /* Checks if a given point is within the vertical level 
+         * as the segment */
+        bool isInBetweenY(Point<T>* P)
+        {
+            return (P->Y > (*R + tMin*(*V)).Y) && (P->Y < (*R + tMax*(*V)).Y);
+        }
+
+
     private:
         /* A line can be represented as
          * R+t*V 
