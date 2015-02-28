@@ -71,7 +71,7 @@ class Segment
         /*is it a Point */
         bool isPoint()
         {
-            return tMax == tMin && tMax < EPSILON;
+            return tMax == tMin || (tMax-tMin) < EPSILON;
         }
 
         bool isHorizontal()
@@ -129,6 +129,8 @@ class Segment
         {
             return tMax;
         }
+
+
 
     private:
         /* A line can be represented as
